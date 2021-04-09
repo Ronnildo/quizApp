@@ -1,0 +1,17 @@
+{
+  "name": "quizApp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Ronnildo/quizApp.git",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "sucrase": "^3.17.1"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  }
+}
