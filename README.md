@@ -21,4 +21,4 @@ Criar uma branch
 
 Depois
 
-  git fetch <nome>
+  git fetch "nome"
