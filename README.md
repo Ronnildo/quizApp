@@ -22,3 +22,4 @@ Criar uma branch
 Depois
 
   git fetch "nome"
+  git rebase "nome"/main
