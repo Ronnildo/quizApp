@@ -15,7 +15,7 @@ Criar uma branch
 
   git checkout -b <nome da branch>
 
-#Comandos para atualizar o repositório local
+# Comandos para atualizar o repositório local
 
   git remote add <nome> <link do repositório>
 
