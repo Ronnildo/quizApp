@@ -11,7 +11,7 @@ class userController {
             senha: Yup.string().required().min(6),
         });
         
-        if(!(await(esquema.isValid(req.body)))){
+        if(!( await(esquema.isValid(req.body) ))){
             return res.status(400).json({mensagem: "Campos Invalidos!"})
         }
 

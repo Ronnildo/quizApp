@@ -1,10 +1,11 @@
 import Sequelize from 'sequelize';
 
 import User from '../quiz/models/User';
+import Perguntas from '../quiz/models/Perguntas';
 
 import databaseConfig from '../config/database';
 
-const models = [User]
+const models = [User, Perguntas]
 
 class Database{
     constructor(){
