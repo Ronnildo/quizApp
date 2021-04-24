@@ -4,6 +4,8 @@ import UserController from './quiz/controller/UserController';
 import sessionController from './quiz/controller/SessionController';
 import perguntasController from './quiz/controller/PerguntaController';
 
+import AuthMiddlware from './quiz/Middlewares/auth';
+
 const routes = new Router();
 
 routes.get("/", (req, res) => {
@@ -12,6 +14,8 @@ routes.get("/", (req, res) => {
 
 //routes.get("/user", UserController.store);
 
+//routes.use(AuthMiddlware);
+routes.put('/user', UserController.update);
 
 routes.post("/user", UserController.store);
 

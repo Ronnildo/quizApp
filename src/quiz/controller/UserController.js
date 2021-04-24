@@ -10,7 +10,7 @@ class userController {
             email: Yup.string().email().required(),
             senha: Yup.string().required().min(6),
         });
-        
+      
         if(!( await(esquema.isValid(req.body) ))){
             return res.status(400).json({mensagem: "Campos Invalidos!"})
         }
@@ -28,9 +28,25 @@ class userController {
         return res.json({ id, name, email, senha });
     }
 
+    async update(req, res) {
+        const { email, senha } = req.body;
+        const user = await User.findByPk(req.userId)
 
+        
+            const existeUsuarioEmail = await User.findOne({where: {email}});
+            if(existeUsuarioEmail) {
+                return res.status(400).json({error: "Email já cadastrado" });
+            }
+        
+        // console.log(senhaAntiga)
+        // if(!senhaAntiga) {
+        //     return res.status(400).json({error: "Senha antiga diferente da senha cadastrada"});
+        // }
 
-    
+        const { id, name} = await user.update(req.body);
+
+        return res.json({ id, name, email });
+    } 
 }
 
 export default new userController();
