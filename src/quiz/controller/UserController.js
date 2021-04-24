@@ -10,16 +10,16 @@ class userController {
             email: Yup.string().email().required(),
             senha: Yup.string().required().min(6),
         });
-
+      
         if(!( await(esquema.isValid(req.body) ))){
             return res.status(400).json({mensagem: "Campos Invalidos!"})
         }
 
         const userExists = await User.findOne({where: {email: req.body.email } });
 
-        // if(userExists){
-        //     return res.status(400).json({mensagem: "Usuario já existe"});
-        // }
+        if(userExists){
+            return res.status(400).json({mensagem: "Usuario já existe"});
+        }
 
         const { id, name, email, senha } = await User.create(
             req.body

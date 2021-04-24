@@ -18,7 +18,6 @@ class sessionController {
         
         if(!password){
             return res.status(401).json({error : "Password errado"});
-  
         }
 
         return res.json({
