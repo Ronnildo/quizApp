@@ -17,7 +17,7 @@ Criar uma branch
 
 # Comandos para atualizar o repositório local
 
-  git remote add <nome> <link do repositório>
+  git remote add "nome" <link do repositório>
 
 Depois
 
