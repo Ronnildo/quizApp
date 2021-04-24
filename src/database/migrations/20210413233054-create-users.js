@@ -1,5 +1,7 @@
 'use strict';
 
+const { password } = require("../../config/database");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
       await queryInterface.createTable("users", {
@@ -21,7 +23,15 @@ module.exports = {
         senha: {
           type: Sequelize.STRING,
           allowNull: false,
-        }
+        },
+        created_at: {
+          allowNull: false,
+          type: Sequelize.DATE,
+        },
+        updated_at: {
+          allowNull: false,
+          type: Sequelize.DATE,
+        },
       })
   },
 
