@@ -31,10 +31,6 @@ class perguntasController {
 
         return res.json({ id, tema, questao, a, b, c, d, resposta});
     }
-
-    // async update(req, res){
-
-    // }
 }
 
 export default new perguntasController();
