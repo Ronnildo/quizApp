@@ -10,7 +10,7 @@ export default async (req, res, next) => {
 
     console.log(authHeader);
 
-    const [bearer, token] = authHeader.spplist(" ");
+    const [bearer, token] = authHeader.split(" ");
 
     try {
         const decodificar = await promisify(jwt.verify)(token, authConfig.secret);
