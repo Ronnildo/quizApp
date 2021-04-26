@@ -1,8 +1,22 @@
 import Perguntas from '../models/Perguntas';
 import * as Yup from 'yup';
-import sequelize from 'sequelize';
+import User from '../models/User';
 
 class perguntasController {
+
+    async index(req, res){
+
+        const {page = 1} = req.query;
+
+        const perguntas = await Perguntas.findAll({
+            where: {tema: req.body.tema},
+            ordem: ['tema'],
+            limit: 20,
+        });
+        // console.log(perguntas);
+        return res.json(perguntas);
+    }
+
     async store(req, res){
 
         const skema = Yup.object().shape({
@@ -31,6 +45,7 @@ class perguntasController {
 
         return res.json({ id, tema, questao, a, b, c, d, resposta});
     }
+
 }
 
 export default new perguntasController();

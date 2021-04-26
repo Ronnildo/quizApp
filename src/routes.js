@@ -14,19 +14,17 @@ routes.get("/", (req, res) => {
 
 //routes.get("/user", UserController.store);
 
-//routes.use(AuthMiddlware);
+routes.post("/user", UserController.store);
 
 routes.use(AuthMiddlware);
-
-routes.post("/user", UserController.store);
 
 routes.post("/session", sessionController.store);
 
 routes.post('/perguntas', perguntasController.store);
+routes.get('/perguntas', perguntasController.index);
+
 
 routes.put('/user', UserController.update);
-
-
 
 
 export default routes;
