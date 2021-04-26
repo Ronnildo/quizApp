@@ -63,6 +63,7 @@ class userController {
 
     return res.json({ id, name, email });
   }
+
 }
 
 export default new userController();

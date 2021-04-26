@@ -4,13 +4,14 @@ import authConfig from "../../config/auth";
 
 export default async (req, res, next) => {
     const authHeader = req.headers.authorization;
+    console.log(authHeader);
     if (!authHeader) {
         return res.status(401).json({ error: "Token não enviado" });
     }
 
     console.log(authHeader);
 
-    const [bearer, token] = authHeader.split(" ");
+    const [Bearer, token] = authHeader.split(" ");
 
     try {
         const decodificar = await promisify(jwt.verify)(token, authConfig.secret);
